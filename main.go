@@ -10,7 +10,6 @@ func main() {
 	const filePathRoot = "."
 
 	mux := http.NewServeMux()
-	mux.Handle("/", http.FileServer(http.Dir(filePathRoot)))
 	mux.Handle("/app/", http.StripPrefix("/app", http.FileServer(http.Dir(filePathRoot))))
 	mux.HandleFunc("/healthz", handlerHealthz)
 
